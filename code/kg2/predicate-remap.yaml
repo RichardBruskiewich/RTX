@@ -5,20 +5,25 @@ BFO:0000050:
 BFO:0000051:
   invert:
   - part_of
+  # there is now actually a "biolink:has_part" term for the inverse of "biolink:part_of"
   - biolink:part_of
 BFO:0000054:
   rename:
   - related_to
   - biolink:related_to
 BFO:0000055:
+  # See https://www.ebi.ac.uk/ols/ontologies/omiabis/properties?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBFO_0000055
+  # Maybe biolink needs a new term 'realizes'. that said, there is actually a "biolink:has_part" term for the inverse of "biolink:part_of"
   invert:
   - part_of
   - biolink:part_of
 BFO:0000056:
+  # Can't find this term in the OLS but will use the RTX mapping for now(?)
   rename:
   - participates_in
   - biolink:participates_in
 BFO:0000062:
+  # exact inverse term is now biolink:preceded_by"
   invert:
   - precedes
   - biolink:precedes
@@ -31,6 +36,7 @@ BFO:0000066:
   - occurs_in
   - biolink:occurs_in
 BFO:0000067:
+  # Seems to be inverse of "biolink:occurs_in"
   invert:
   - part_of
   - biolink:part_of
@@ -43,10 +49,12 @@ BFO:0000069:
   - related_to
   - biolink:related_to
 BFO:0000117:
+  # inverse of 'biolink:part_of' is 'biolink:has_part'
   invert:
   - part_of
   - biolink:part_of
 BFO:0000167:
+  # inverse of 'biolink:participates_in' is 'biolink:has_participant'
   invert:
   - participates_in
   - biolink:participates_in
@@ -1599,9 +1607,9 @@ MONDO:disease_has_basis_in_development_of:
   - disease_has_basis_in
   - biolink:disease_has_basis_in
 MONDO:disease_has_major_feature:
-  invert:
-  - part_of
-  - biolink:part_of
+  rename:
+  - has_part
+  - biolink:has_part
 MONDO:disease_responds_to:
   invert:
   - treats
@@ -3337,9 +3345,9 @@ RTXKG1:capable_of_part_of:
   - causes
   - biolink:causes
 RTXKG1:composed_primarily_of:
-  invert:
-  - part_of
-  - biolink:part_of
+  rename:
+  - has_part
+  - biolink:has_part
 RTXKG1:contains_process:
   invert:
   - part_of
@@ -3393,9 +3401,9 @@ RTXKG1:has_phenotype:
   - has_phenotype
   - biolink:has_phenotype
 RTXKG1:has_plasma_membrane_part:
-  invert:
-  - part_of
-  - biolink:part_of
+  rename:
+  - has_part
+  - biolink:has_part
 RTXKG1:indicated_for:
   rename:
   - treats
